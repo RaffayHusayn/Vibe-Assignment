@@ -11,3 +11,108 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Core_Company {
+  id               String           @id @default(cuid())
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  domain           String           @unique
+  // Enrichment fields from Apollo
+  name             String?
+  industry         String?
+  employeeCount    Int?
+  revenue          BigInt?
+  growth6mo        Float?
+  growth12mo       Float?
+  growth24mo       Float?
+  totalFunding     BigInt?
+  lastFundingAt    DateTime?
+  techStack        String[]
+  deptHeadcount    Json?
+  enrichmentStatus EnrichmentStatus @default(pending)
+  enrichedAt       DateTime?
+  contacts         Core_Contact[]
+  pipeline         Sales_Pipeline?
+
+  @@map("core_company")
+}
+
+enum EnrichmentStatus {
+  pending
+  enriched
+  failed
+}
+
+model Core_Contact {
+  id          String            @id @default(cuid())
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  email       String            @unique
+  name        String?
+  title       String?
+  companyId   String
+  company     Core_Company      @relation(fields: [companyId], references: [id])
+  touchpoints Core_TouchPoint[]
+  verified    Boolean           @default(false)
+
+  @@map("core_contact")
+}
+
+model Core_TouchPoint {
+  id        String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  contactId String
+  contact   Core_Contact @relation(fields: [contactId], references: [id])
+  eventId   String
+  event     Events_Event @relation(fields: [eventId], references: [id])
+  // What was said at the booth — the conversation note captured on the floor.
+  note      String
+
+  @@map("core_touchpoint")
+}
+
+model Sales_Pipeline {
+  id               String                   @id @default(cuid())
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+  companyId        String                   @unique
+  company          Core_Company             @relation(fields: [companyId], references: [id])
+  stage            SalesStage               @default(new)
+  activityTimeline Sales_ActivityTimeline[]
+
+  @@map("sales_pipeline")
+}
+
+enum SalesStage {
+  new
+  contacted
+  qualified
+  closed
+}
+
+model Sales_ActivityTimeline {
+  id         String         @id @default(cuid())
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  pipelineId String
+  pipeline   Sales_Pipeline @relation(fields: [pipelineId], references: [id])
+  body       String
+
+  @@map("sales_activity_timeline")
+}
+
+model Events_Event {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name      String
+  city      String
+  startDate DateTime
+  endDate   DateTime
+
+  touchpoints Core_TouchPoint[]
+
+  @@map("events_event")
+}
