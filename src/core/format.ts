@@ -10,6 +10,17 @@ export function formatDate(date: Date): string {
   }).format(date);
 }
 
+/** A real timestamp (e.g. when a touchpoint was logged) — unlike formatDate,
+ * this deliberately uses the local timezone since there's a genuine time-of-day. */
+export function formatDateTime(date: Date): string {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(date);
+}
+
 export function formatDateRange(start: Date, end: Date): string {
   const sameDay =
     start.getUTCFullYear() === end.getUTCFullYear() &&
