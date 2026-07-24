@@ -1,0 +1,42 @@
+import { Box, Button, Divider, Group, Stack, Text, Title } from "@mantine/core";
+import { Fragment } from "react";
+import { marketingStrings } from "../strings";
+
+export function PageHeader() {
+  const { pageHeader } = marketingStrings;
+
+  return (
+    <Box mb="xl">
+      <Group justify="space-between" align="flex-start" wrap="nowrap" mb="md">
+        {/* Left: breadcrumb, title, meta row */}
+        <Stack gap={6}>
+          <Text size="xs" c="dimmed">
+            {pageHeader.breadcrumb}
+          </Text>
+          <Title order={1}>{pageHeader.title}</Title>
+          <Group gap="xs">
+            {pageHeader.metaItems.map((item, index) => (
+              <Fragment key={index}>
+                {index > 0 && (
+                  <Text size="sm" c="dimmed">
+                    ·
+                  </Text>
+                )}
+                <Text size="sm" c="dimmed">
+                  {item}
+                </Text>
+              </Fragment>
+            ))}
+          </Group>
+        </Stack>
+
+        {/* Right: page-level actions */}
+        <Group gap="sm" wrap="nowrap">
+          <Button variant="default">{pageHeader.secondaryAction}</Button>
+          <Button>{pageHeader.primaryAction}</Button>
+        </Group>
+      </Group>
+      <Divider />
+    </Box>
+  );
+}
