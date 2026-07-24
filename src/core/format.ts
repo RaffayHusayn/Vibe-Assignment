@@ -21,6 +21,17 @@ export function formatDateTime(date: Date): string {
   }).format(date);
 }
 
+/** Compact currency for enrichment fields stored as bigint (revenue, funding), e.g. "$4.2M". */
+export function formatCompactCurrency(value: bigint | null | undefined): string | null {
+  if (value == null) return null;
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(Number(value));
+}
+
 export function formatDateRange(start: Date, end: Date): string {
   const sameDay =
     start.getUTCFullYear() === end.getUTCFullYear() &&
