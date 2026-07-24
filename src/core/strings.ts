@@ -16,8 +16,4 @@ export const coreStrings = {
   topNav: {
     searchPlaceholder: "Search...",
   },
-  userProfile: {
-    name: "User name",
-    email: "user@email.com",
-  },
 } as const;

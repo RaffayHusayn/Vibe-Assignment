@@ -1,3 +1,4 @@
+import { Button } from "@mantine/core";
 import { ContentSplit } from "@/src/core/ui/ContentSplit";
 import { PageHeader } from "@/src/core/ui/PageHeader";
 import { StatsGrid } from "@/src/core/ui/StatsGrid";
@@ -12,8 +13,8 @@ export default function ContactsPage() {
         breadcrumb={contacts.breadcrumb}
         title={contacts.title}
         metaItems={contacts.metaItems}
-        primaryAction={contacts.primaryAction}
-        secondaryAction={contacts.secondaryAction}
+        primaryAction={<Button>{contacts.primaryAction}</Button>}
+        secondaryAction={<Button variant="default">{contacts.secondaryAction}</Button>}
       />
       <StatsGrid />
       <ContentSplit />

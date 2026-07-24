@@ -1,7 +1,10 @@
+import { notFound } from "next/navigation";
 import { ContentSplit } from "@/src/core/ui/ContentSplit";
-import { PageHeader } from "@/src/core/ui/PageHeader";
 import { StatsGrid } from "@/src/core/ui/StatsGrid";
-import { eventsStrings } from "@/src/events/strings";
+import { prisma } from "@/src/core/db";
+import { EventDetailHeader } from "@/src/events/ui/EventDetailHeader";
+
+export const dynamic = "force-dynamic";
 
 export default async function EventDetailPage({
   params,
@@ -9,16 +12,18 @@ export default async function EventDetailPage({
   params: Promise<{ eventId: string }>;
 }) {
   const { eventId } = await params;
-  const { eventDetail } = eventsStrings;
+
+  const event = await prisma.events_Event.findUnique({ where: { id: eventId } });
+  if (!event) notFound();
 
   return (
     <>
-      <PageHeader
-        breadcrumb={`${eventDetail.breadcrumb} / ${eventId}`}
-        title={eventDetail.title}
-        metaItems={eventDetail.metaItems}
-        primaryAction={eventDetail.primaryAction}
-        secondaryAction={eventDetail.secondaryAction}
+      <EventDetailHeader
+        eventId={event.id}
+        name={event.name}
+        city={event.city}
+        startDate={event.startDate}
+        endDate={event.endDate}
       />
       <StatsGrid />
       <ContentSplit />

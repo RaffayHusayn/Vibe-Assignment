@@ -1,3 +1,4 @@
+import { Button } from "@mantine/core";
 import { ContentSplit } from "@/src/core/ui/ContentSplit";
 import { PageHeader } from "@/src/core/ui/PageHeader";
 import { StatsGrid } from "@/src/core/ui/StatsGrid";
@@ -12,8 +13,8 @@ export default function SalesCompaniesPage() {
         breadcrumb={companies.breadcrumb}
         title={companies.title}
         metaItems={companies.metaItems}
-        primaryAction={companies.primaryAction}
-        secondaryAction={companies.secondaryAction}
+        primaryAction={<Button>{companies.primaryAction}</Button>}
+        secondaryAction={<Button variant="default">{companies.secondaryAction}</Button>}
       />
       <StatsGrid />
       <ContentSplit />

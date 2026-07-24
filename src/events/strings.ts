@@ -2,16 +2,41 @@ export const eventsStrings = {
   events: {
     breadcrumb: "Events",
     title: "Events",
-    metaItems: ["0 events", "0 upcoming", "0 past"],
+    metaLabels: {
+      total: "events",
+      upcoming: "upcoming",
+      past: "past",
+    },
     primaryAction: "New event",
     secondaryAction: "Filter",
   },
+  emptyState: {
+    title: "No events yet",
+    description: "Create your first event to start capturing contacts at the booth.",
+    cta: "Create an event",
+  },
+  groups: {
+    upcoming: "Upcoming",
+    past: "Past",
+  },
+  card: {
+    eyebrow: "Event",
+    contactsLabel: "contacts captured",
+    companiesLabel: "companies discovered",
+  },
+  createEvent: {
+    modalTitle: "Create event",
+    nameLabel: "Name",
+    namePlaceholder: "Event name",
+    cityLabel: "City",
+    cityPlaceholder: "City",
+    startDateLabel: "Start date",
+    endDateLabel: "End date",
+    submit: "Create event",
+  },
   eventDetail: {
-    breadcrumb: "Events",
-    title: "Event details",
-    metaItems: ["Location", "Date", "Status"],
-    primaryAction: "Edit event",
-    secondaryAction: "Back to events",
+    backLabel: "Events",
+    deleteAction: "Delete",
   },
   contacts: {
     breadcrumb: "Events / Contacts",

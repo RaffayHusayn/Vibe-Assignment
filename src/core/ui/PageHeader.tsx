@@ -1,12 +1,13 @@
-import { Box, Button, Divider, Group, Stack, Text, Title } from "@mantine/core";
-import { Fragment } from "react";
+import { Box, Divider, Group, Stack, Text, Title } from "@mantine/core";
+import { Fragment, type ReactNode } from "react";
 
 interface PageHeaderProps {
   breadcrumb: string;
   title: string;
   metaItems: readonly string[];
-  primaryAction: string;
-  secondaryAction: string;
+  primaryAction: ReactNode;
+  backAction?: ReactNode;
+  secondaryAction?: ReactNode;
 }
 
 export function PageHeader({
@@ -14,13 +15,15 @@ export function PageHeader({
   title,
   metaItems,
   primaryAction,
+  backAction,
   secondaryAction,
 }: PageHeaderProps) {
   return (
     <Box mb="xl">
       <Group justify="space-between" align="flex-start" wrap="nowrap" mb="md">
-        {/* Left: breadcrumb, title, meta row */}
+        {/* Left: back, breadcrumb, title, meta row */}
         <Stack gap={6}>
+          {backAction}
           <Text size="xs" c="dimmed">
             {breadcrumb}
           </Text>
@@ -43,11 +46,13 @@ export function PageHeader({
 
         {/* Right: page-level actions */}
         <Group gap="sm" wrap="nowrap">
-          <Button variant="default">{secondaryAction}</Button>
-          <Button>{primaryAction}</Button>
+          {secondaryAction}
+          {primaryAction}
         </Group>
       </Group>
-      <Divider />
+      {/* Bleed out of the parent's p="xl" so this connects edge-to-edge with
+          TopNav's divider and the sidebar border, instead of floating inset. */}
+      <Divider style={{ marginInline: "calc(var(--mantine-spacing-xl) * -1)" }} />
     </Box>
   );
 }
