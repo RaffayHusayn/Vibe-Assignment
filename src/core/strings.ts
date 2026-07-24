@@ -3,15 +3,16 @@ export const coreStrings = {
     name: "Brand",
   },
   workspace: {
-    name: "Workspace name",
-    plan: "Free plan",
+    events: "Events",
+    sales: "Sales",
+    switcherLabel: "Workspace",
+    switchPrompt: "Switch workspace",
   },
-  navigation: [
-    { label: "Overview" },
-    { label: "Marketing" },
-    { label: "Sales" },
-    { label: "Reports" },
-  ],
+  nav: {
+    events: "Events",
+    contacts: "Contacts",
+    companies: "Companies",
+  },
   topNav: {
     searchPlaceholder: "Search...",
   },
