@@ -14,7 +14,6 @@ export default function ContactsPage() {
         title={contacts.title}
         metaItems={contacts.metaItems}
         primaryAction={<Button>{contacts.primaryAction}</Button>}
-        secondaryAction={<Button variant="default">{contacts.secondaryAction}</Button>}
       />
       <StatsGrid />
       <ContentSplit />

@@ -7,7 +7,6 @@ interface PageHeaderProps {
   metaItems: readonly string[];
   primaryAction: ReactNode;
   backAction?: ReactNode;
-  secondaryAction?: ReactNode;
 }
 
 export function PageHeader({
@@ -16,7 +15,6 @@ export function PageHeader({
   metaItems,
   primaryAction,
   backAction,
-  secondaryAction,
 }: PageHeaderProps) {
   return (
     <Box mb="xl">
@@ -46,7 +44,6 @@ export function PageHeader({
 
         {/* Right: page-level actions */}
         <Group gap="sm" wrap="nowrap">
-          {secondaryAction}
           {primaryAction}
         </Group>
       </Group>

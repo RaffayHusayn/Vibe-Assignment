@@ -8,7 +8,6 @@ export const eventsStrings = {
       past: "past",
     },
     primaryAction: "New event",
-    secondaryAction: "Filter",
   },
   emptyState: {
     title: "No events yet",
@@ -43,13 +42,11 @@ export const eventsStrings = {
     title: "Contacts",
     metaItems: ["0 contacts", "0 verified", "0 companies"],
     primaryAction: "New contact",
-    secondaryAction: "Filter",
   },
   companies: {
     breadcrumb: "Events / Companies",
     title: "Companies",
     metaItems: ["0 companies", "0 enriched", "0 pending"],
     primaryAction: "New company",
-    secondaryAction: "Filter",
   },
 } as const;

@@ -14,7 +14,6 @@ export default function EventsCompaniesPage() {
         title={companies.title}
         metaItems={companies.metaItems}
         primaryAction={<Button>{companies.primaryAction}</Button>}
-        secondaryAction={<Button variant="default">{companies.secondaryAction}</Button>}
       />
       <StatsGrid />
       <ContentSplit />

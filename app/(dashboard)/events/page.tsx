@@ -1,4 +1,3 @@
-import { Button } from "@mantine/core";
 import { PageHeader } from "@/src/core/ui/PageHeader";
 import { prisma } from "@/src/core/db";
 import { CreateEventButton } from "@/src/events/ui/CreateEventButton";
@@ -47,7 +46,6 @@ export default async function EventsPage() {
         title={events.title}
         metaItems={metaItems}
         primaryAction={<CreateEventButton label={events.primaryAction} />}
-        secondaryAction={<Button variant="default">{events.secondaryAction}</Button>}
       />
       {allEvents.length === 0 ? (
         <EventsEmptyState />
