@@ -30,32 +30,34 @@ export function Sidebar() {
   return (
     <Stack h="100%" gap={0}>
       {/* Logo / brand — fixed height + border-bottom, aligned with TopNav's row */}
-      <Group
-        h={64}
-        px="xl"
-        gap="sm"
-        wrap="nowrap"
-        style={{
-          flexShrink: 0,
-          borderBottom: "1px solid var(--mantine-color-gray-3)",
-        }}
-      >
-        <Box
-          w={28}
-          h={28}
-          bdrs="sm"
+      <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+        <Group
+          h={64}
+          px="xl"
+          gap="sm"
+          wrap="nowrap"
           style={{
             flexShrink: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "linear-gradient(135deg, var(--mantine-color-teal-6) 0%, var(--mantine-color-indigo-6) 100%)",
+            borderBottom: "1px solid var(--mantine-color-gray-3)",
           }}
         >
-          <IconLayoutKanban size={16} color="white" stroke={2} />
-        </Box>
-        <Title order={6}>{coreStrings.brand.name}</Title>
-      </Group>
+          <Box
+            w={28}
+            h={28}
+            bdrs="sm"
+            style={{
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "linear-gradient(135deg, var(--mantine-color-teal-6) 0%, var(--mantine-color-indigo-6) 100%)",
+            }}
+          >
+            <IconLayoutKanban size={16} color="white" stroke={2} />
+          </Box>
+          <Title order={6}>{coreStrings.brand.name}</Title>
+        </Group>
+      </Link>
 
       <Stack gap="lg" justify="flex-start" p="md" style={{ flex: 1, minHeight: 0 }}>
         {/* Workspace switcher */}
