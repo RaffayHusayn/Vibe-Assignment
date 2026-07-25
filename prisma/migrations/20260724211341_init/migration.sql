@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "EnrichmentStatus" AS ENUM ('pending', 'enriched', 'failed');
+CREATE TYPE "EnrichmentStatus" AS ENUM ('enriched', 'failed');
 
 -- CreateEnum
 CREATE TYPE "SalesStage" AS ENUM ('new', 'contacted', 'qualified', 'closed');
@@ -21,7 +21,7 @@ CREATE TABLE "core_company" (
     "lastFundingAt" TIMESTAMP(3),
     "techStack" TEXT[],
     "deptHeadcount" JSONB,
-    "enrichmentStatus" "EnrichmentStatus" NOT NULL DEFAULT 'pending',
+    "enrichmentStatus" "EnrichmentStatus" NOT NULL,
     "enrichedAt" TIMESTAMP(3),
 
     CONSTRAINT "core_company_pkey" PRIMARY KEY ("id")
