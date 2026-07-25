@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Waypoint",
+  title: "GTM Board",
   description: "Turn event booth scans into a working sales pipeline.",
 };
 
