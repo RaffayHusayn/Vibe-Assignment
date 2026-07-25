@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "@/src/core/db";
 import { domainFromEmail } from "@/src/core/utils/extract";
 import { isValidEmail } from "@/src/core/utils/validation";
+import { enrichCompany } from "@/src/core/integrations/apollo";
 import type { Core_Company } from "@/src/generated/prisma/client";
 
 export type CaptureContactState = {
@@ -17,6 +18,28 @@ function str(form: FormData, key: string): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
+/** Run the Apollo enrich pass for a freshly created company and persist the result. */
+async function enrichCompanyRecord(company: Core_Company): Promise<Core_Company> {
+  try {
+    const enrichment = await enrichCompany(company.domain);
+    if (!enrichment) {
+      return await prisma.core_Company.update({
+        where: { id: company.id },
+        data: { enrichmentStatus: "failed", enrichedAt: new Date() },
+      });
+    }
+    return await prisma.core_Company.update({
+      where: { id: company.id },
+      data: { ...enrichment, enrichmentStatus: "enriched", enrichedAt: new Date() },
+    });
+  } catch {
+    return await prisma.core_Company.update({
+      where: { id: company.id },
+      data: { enrichmentStatus: "failed", enrichedAt: new Date() },
+    });
+  }
+}
+
 /**
  * Find the company for a domain, creating a shell if it doesn't exist yet.
  * Idempotent under the unique `domain` constraint, so two booth captures for
@@ -27,11 +50,12 @@ async function findOrCreateCompany(domain: string, provisionalName: string): Pro
   if (existing) return existing;
 
   try {
-    // Seed a provisional display name from the mocked extraction; a real
-    // enrichment pass later overwrites it once Apollo is wired in.
-    return await prisma.core_Company.create({
+    // Seed a provisional display name from the mocked extraction; the Apollo
+    // enrich pass right below overwrites it with the canonical name.
+    const created = await prisma.core_Company.create({
       data: { domain, name: provisionalName || null },
     });
+    return await enrichCompanyRecord(created);
   } catch {
     // Lost a race with a concurrent capture for the same domain — re-read.
     const raced = await prisma.core_Company.findUnique({ where: { domain } });
@@ -89,7 +113,8 @@ export async function captureContact(
   });
 
   revalidatePath(`/events/${eventId}`);
-  revalidatePath("/events/contacts");
+  revalidatePath("/sales");
+  revalidatePath(`/sales/${company.id}`);
 
   return {
     ok: true,

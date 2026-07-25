@@ -1,0 +1,599 @@
+{
+    "organization": {
+        "id": "6165790c839b7400a46901b0",
+        "name": "Vibe.co",
+        "website_url": "http://www.vibe.co",
+        "angellist_url": null,
+        "linkedin_url": "http://www.linkedin.com/company/vibedotco",
+        "twitter_url": null,
+        "facebook_url": null,
+        "languages": [],
+        "alexa_ranking": 661512,
+        "phone": "+1 888-603-3626",
+        "linkedin_uid": "76485224",
+        "founded_year": 2022,
+        "publicly_traded_symbol": null,
+        "publicly_traded_exchange": null,
+        "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6a2dca9ab94b4d0001773667/picture",
+        "crunchbase_url": null,
+        "primary_domain": "vibe.co",
+        "sic_codes": [
+            "7311",
+            "7372"
+        ],
+        "naics_codes": [
+            "541810",
+            "513210"
+        ],
+        "primary_phone": {
+            "number": "+1 888-603-3626",
+            "sanitized_number": "+18886033626"
+        },
+        "sanitized_phone": "+18886033626",
+        "industry": "marketing \u0026 advertising",
+        "estimated_num_employees": 200,
+        "keywords": [
+            "advertising services",
+            "b2b",
+            "saas",
+            "marketing \u0026 advertising",
+            "computer software",
+            "information technology \u0026 services"
+        ],
+        "organization_revenue_printed": "165M",
+        "organization_revenue": 165000000.0,
+        "industries": [
+            "marketing \u0026 advertising",
+            "computer software"
+        ],
+        "secondary_industries": [
+            "computer software"
+        ],
+        "snippets_loaded": true,
+        "industry_tag_id": "5567cd467369644d39040000",
+        "industry_tag_hash": {
+            "marketing \u0026 advertising": "5567cd467369644d39040000",
+            "computer software": "5567cd4e7369643b70010000"
+        },
+        "retail_location_count": 0,
+        "raw_address": "new york, new york, united states",
+        "street_address": "",
+        "city": "New York",
+        "state": "New York",
+        "postal_code": null,
+        "country": "United States",
+        "owned_by_organization_id": null,
+        "num_languages": 0,
+        "num_retail_locations": 0,
+        "short_description": "Vibe.co is the all-in-one self-serve platform built for performance marketers who want to turn Streaming TV into a true growth channel. Trusted by over 10,000+ performance-driven brands, Vibe brings digital precision, transparency, and measurable ROI to Connected TV advertising.\n\nDesigned for results, not impressions, Vibe helps advertisers drive real performance across metrics like CPA, ROAS, and conversions. Powered by proprietary transactional data, Vibe delivers hyper-targeted TV campaigns with the same accuracy and personalization you expect from Instagram ads—but on the biggest screen in the home.\n\nVibe gives marketers seamless access to the entire streaming TV ecosystem through one simple, intuitive interface. No agencies, no delays, no middlemen. Just full control, instant activation, and performance you can measure.\n\nIntegrated with leading marketing tools like Klaviyo, Segment, HubSpot, Triple Whale, and Northbeam, Vibe connects your customer data to TV in real time for smarter attribution and optimization.\n\nBacked by $80M in funding, Vibe is redefining how modern marketers scale with TV, turning a traditional brand channel into a high-performing, self-serve growth engine.\n\nGet started today on https://vibe.co",
+        "suborganizations": [],
+        "num_suborganizations": 0,
+        "annual_revenue_printed": "165M",
+        "annual_revenue": 165000000.0,
+        "total_funding": 78900000,
+        "total_funding_printed": "78.9M",
+        "latest_funding_round_date": "2026-06-01T00:00:00.000+00:00",
+        "latest_funding_stage": "Merger / Acquisition",
+        "funding_events": [
+            {
+                "id": "6a3b3a83daf438000195a650",
+                "date": "2026-06-01T00:00:00.000+00:00",
+                "news_url": "https://corporate.walmart.com/news/2026/06/23/walmart-to-acquire-vibe-co-to-expand-access-to-connected-tv-advertising",
+                "type": "Merger / Acquisition",
+                "investors": "Walmart",
+                "currency": "$"
+            },
+            {
+                "id": "696601961bb2590001865436",
+                "date": "2025-09-01T00:00:00.000+00:00",
+                "news_url": "https://www.globenewswire.com/news-release/2025/09/30/3158376/0/en/Vibe-co-Raises-50M-Series-B-to-Bring-AI-Powered-Hyper-Targeted-Advertising-to-TV.html",
+                "type": "Series B",
+                "investors": "Illusian, QuantumLight, Hedosophia, Elaia Partners, Singular",
+                "amount": "50M",
+                "currency": "$"
+            },
+            {
+                "id": "696601961bb2590001865431",
+                "date": "2024-02-01T00:00:00.000+00:00",
+                "news_url": "https://www.vibe.co/blog/vibe-co-raises-22-5m-to-become-go-to-streaming-tv-ad-platform-for-smbs",
+                "type": "Series A",
+                "investors": "Laurent Asscher, Cyril Vermeulen, Benjamin Antier, Elaia Partners, Sequoia, Singular, Motier Ventures, The Very Group, Alain Roubach",
+                "amount": "22.5M",
+                "currency": "$"
+            },
+            {
+                "id": "696601961bb259000186542c",
+                "date": "2022-09-01T00:00:00.000+00:00",
+                "news_url": null,
+                "type": "Seed",
+                "investors": "Elaia Partners",
+                "amount": "6.4M",
+                "currency": "$"
+            }
+        ],
+        "technology_names": [
+            "AI",
+            "AMP",
+            "AWS Analytics",
+            "AWS Trusted Advisor",
+            "Amazon Kinesis",
+            "Amazon Managed Streaming for Apache Kafka (Amazon MSK)",
+            "Amazon S3",
+            "Anthropic Claude",
+            "Anthropic Claude",
+            "Apache Spark",
+            "Apache Spark",
+            "Apple Business Manager",
+            "Apple School Manager",
+            "Argon CI/CD Security",
+            "Athena",
+            "Calendly",
+            "CallMiner Eureka",
+            "ClickHouse",
+            "CloudFlare",
+            "CloudFlare CDN",
+            "CloudFlare CDN",
+            "Cloudflare DNS",
+            "Cloudinary",
+            "Cursor",
+            "Customer.IO",
+            "DatoCMS",
+            "Dell EMC PowerScale",
+            "DuckDB",
+            "Facebook Pixel",
+            "GitHub",
+            "Gmail",
+            "Google",
+            "Google Meet",
+            "Google Search Central",
+            "Google Search Console",
+            "Google Tag Manager",
+            "Google Workspace",
+            "Google Workspace",
+            "ICE",
+            "Intel Cloud Services",
+            "Kubernetes",
+            "LAMMPS",
+            "LeadsPedia",
+            "LinkedIn Ads",
+            "LinkedIn Sales Navigator",
+            "Linkedin Marketing Solutions",
+            "Mailchimp Mandrill",
+            "Mailchimp Mandrill",
+            "Microsoft 365",
+            "Mobile Friendly",
+            "MySQL",
+            "MySQL",
+            "Next.js",
+            "Notion",
+            "OpenNebula",
+            "Outreach.io",
+            "PostgreSQL",
+            "Python",
+            "React",
+            "Redis",
+            "Rust",
+            "Salesforce",
+            "Slack",
+            "Stripe",
+            "Stripe Payments",
+            "Terraform",
+            "TypeScript",
+            "Vercel",
+            "Viewport Meta",
+            "Winmo",
+            "WordPress.org",
+            "YouTube",
+            "gandi.net",
+            "go+",
+            "n8n"
+        ],
+        "current_technologies": [
+            {
+                "uid": "ai",
+                "name": "AI",
+                "category": "Other"
+            },
+            {
+                "uid": "amp",
+                "name": "AMP",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "aws_analytics",
+                "name": "AWS Analytics",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "aws_trusted_advisor",
+                "name": "AWS Trusted Advisor",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "amazon_kinesis",
+                "name": "Amazon Kinesis",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "amazon_managed_streaming_for_apache_kafka_amazon_msk",
+                "name": "Amazon Managed Streaming for Apache Kafka (Amazon MSK)",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "amazon_s3",
+                "name": "Amazon S3",
+                "category": "Content Delivery Networks"
+            },
+            {
+                "uid": "anthropic_claude",
+                "name": "Anthropic Claude",
+                "category": "Other"
+            },
+            {
+                "uid": "anthropic_claude",
+                "name": "Anthropic Claude",
+                "category": "Other"
+            },
+            {
+                "uid": "apache_spark",
+                "name": "Apache Spark",
+                "category": "Database"
+            },
+            {
+                "uid": "apache_spark",
+                "name": "Apache Spark",
+                "category": "Database"
+            },
+            {
+                "uid": "apple_business_manager",
+                "name": "Apple Business Manager",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "apple_school_manager",
+                "name": "Apple School Manager",
+                "category": "Education Management Software"
+            },
+            {
+                "uid": "argon_cicd_security",
+                "name": "Argon CI/CD Security",
+                "category": "Security"
+            },
+            {
+                "uid": "athena",
+                "name": "Athena",
+                "category": "Business Intelligence"
+            },
+            {
+                "uid": "calendly",
+                "name": "Calendly",
+                "category": "Appointment Scheduling"
+            },
+            {
+                "uid": "callminer_eureka",
+                "name": "CallMiner Eureka",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "clickhouse",
+                "name": "ClickHouse",
+                "category": "Database"
+            },
+            {
+                "uid": "cloudflare",
+                "name": "CloudFlare",
+                "category": "Web Accelerators"
+            },
+            {
+                "uid": "cloudflare_cdn",
+                "name": "CloudFlare CDN",
+                "category": "Content Delivery Networks"
+            },
+            {
+                "uid": "cloudflare_cdn",
+                "name": "CloudFlare CDN",
+                "category": "Content Delivery Networks"
+            },
+            {
+                "uid": "cloudflare_dns",
+                "name": "Cloudflare DNS",
+                "category": "Domain Name Services"
+            },
+            {
+                "uid": "cloudinary",
+                "name": "Cloudinary",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "cursor",
+                "name": "Cursor",
+                "category": "Other"
+            },
+            {
+                "uid": "customer_io",
+                "name": "Customer.IO",
+                "category": "Email Marketing"
+            },
+            {
+                "uid": "datocms",
+                "name": "DatoCMS",
+                "category": "CMS"
+            },
+            {
+                "uid": "dell_emc_powerscale",
+                "name": "Dell EMC PowerScale",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "duckdb",
+                "name": "DuckDB",
+                "category": "Database"
+            },
+            {
+                "uid": "facebook_pixel",
+                "name": "Facebook Pixel",
+                "category": "ERP"
+            },
+            {
+                "uid": "github",
+                "name": "GitHub",
+                "category": "Hosting"
+            },
+            {
+                "uid": "gmail",
+                "name": "Gmail",
+                "category": "Email Providers"
+            },
+            {
+                "uid": "google",
+                "name": "Google",
+                "category": "Other"
+            },
+            {
+                "uid": "google_meet",
+                "name": "Google Meet",
+                "category": "Communication and Collaboration"
+            },
+            {
+                "uid": "google_search_central",
+                "name": "Google Search Central",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "google_search_console",
+                "name": "Google Search Console",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "google_tag_manager",
+                "name": "Google Tag Manager",
+                "category": "Tag Management"
+            },
+            {
+                "uid": "google workspace",
+                "name": "Google Workspace",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "google workspace",
+                "name": "Google Workspace",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "ice",
+                "name": "ICE",
+                "category": "Customer Relationship Management"
+            },
+            {
+                "uid": "intel",
+                "name": "Intel Cloud Services",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "kubernetes",
+                "name": "Kubernetes",
+                "category": "Other"
+            },
+            {
+                "uid": "lammps",
+                "name": "LAMMPS",
+                "category": "Other"
+            },
+            {
+                "uid": "leads_pedia",
+                "name": "LeadsPedia",
+                "category": "Analytics and Tracking"
+            },
+            {
+                "uid": "linkedin_ads",
+                "name": "LinkedIn Ads",
+                "category": "Advertising Networks"
+            },
+            {
+                "uid": "linkedin_sales_navigator",
+                "name": "LinkedIn Sales Navigator",
+                "category": "Customer Relationship Management"
+            },
+            {
+                "uid": "linkedin_display_ads__formerly_bizo",
+                "name": "Linkedin Marketing Solutions",
+                "category": "Advertising Networks"
+            },
+            {
+                "uid": "mailchimp_mandrill",
+                "name": "Mailchimp Mandrill",
+                "category": "Email Delivery"
+            },
+            {
+                "uid": "mailchimp_mandrill",
+                "name": "Mailchimp Mandrill",
+                "category": "Email Delivery"
+            },
+            {
+                "uid": "microsoft_365",
+                "name": "Microsoft 365",
+                "category": "Communication and Collaboration"
+            },
+            {
+                "uid": "mobile_friendly",
+                "name": "Mobile Friendly",
+                "category": "Other"
+            },
+            {
+                "uid": "mysql",
+                "name": "MySQL",
+                "category": "Database"
+            },
+            {
+                "uid": "mysql",
+                "name": "MySQL",
+                "category": "Database"
+            },
+            {
+                "uid": "nextjs",
+                "name": "Next.js",
+                "category": "Frameworks and Programming Languages"
+            },
+            {
+                "uid": "notion",
+                "name": "Notion",
+                "category": "Other"
+            },
+            {
+                "uid": "opennebula",
+                "name": "OpenNebula",
+                "category": "Cloud Services"
+            },
+            {
+                "uid": "outreach.io",
+                "name": "Outreach.io",
+                "category": "Marketing Automation"
+            },
+            {
+                "uid": "postgresql",
+                "name": "PostgreSQL",
+                "category": "Database"
+            },
+            {
+                "uid": "python",
+                "name": "Python",
+                "category": "Frameworks and Programming Languages"
+            },
+            {
+                "uid": "react",
+                "name": "React",
+                "category": "CSS and JavaScript Libraries"
+            },
+            {
+                "uid": "redis",
+                "name": "Redis",
+                "category": "Database"
+            },
+            {
+                "uid": "rust",
+                "name": "Rust",
+                "category": "Frameworks and Programming Languages"
+            },
+            {
+                "uid": "salesforce",
+                "name": "Salesforce",
+                "category": "Customer Relationship Management"
+            },
+            {
+                "uid": "slack",
+                "name": "Slack",
+                "category": "Chats"
+            },
+            {
+                "uid": "stripe",
+                "name": "Stripe",
+                "category": "Payments"
+            },
+            {
+                "uid": "stripe_payments",
+                "name": "Stripe Payments",
+                "category": "Payments"
+            },
+            {
+                "uid": "terraform",
+                "name": "Terraform",
+                "category": "Deployment Tools"
+            },
+            {
+                "uid": "typescript",
+                "name": "TypeScript",
+                "category": "Frameworks and Programming Languages"
+            },
+            {
+                "uid": "vercel",
+                "name": "Vercel",
+                "category": "Hosting"
+            },
+            {
+                "uid": "viewport_meta",
+                "name": "Viewport Meta",
+                "category": "CSS and JavaScript Libraries"
+            },
+            {
+                "uid": "winmo",
+                "name": "Winmo",
+                "category": "Advertising Networks"
+            },
+            {
+                "uid": "wordpress_org",
+                "name": "WordPress.org",
+                "category": "CMS"
+            },
+            {
+                "uid": "youtube",
+                "name": "YouTube",
+                "category": "Online Video Platforms"
+            },
+            {
+                "uid": "gandinet",
+                "name": "gandi.net",
+                "category": "Domain Name Services"
+            },
+            {
+                "uid": "go",
+                "name": "go+",
+                "category": "Frameworks and Programming Languages"
+            },
+            {
+                "uid": "n8n",
+                "name": "n8n",
+                "category": "Marketing Automation"
+            }
+        ],
+        "org_chart_root_people_ids": [
+            "66fd13b417e513000132160c"
+        ],
+        "org_chart_sector": "OrgChart::SectorHierarchy::Rules::Marketing",
+        "org_chart_removed": false,
+        "org_chart_show_department_filter": true,
+        "departmental_head_count": {
+            "marketing": 9,
+            "business_development": 6,
+            "sales": 35,
+            "entrepreneurship": 4,
+            "data_science": 6,
+            "human_resources": 8,
+            "arts_and_design": 4,
+            "engineering": 28,
+            "operations": 10,
+            "product_management": 3,
+            "information_technology": 2,
+            "support": 9,
+            "finance": 2,
+            "accounting": 0,
+            "legal": 0,
+            "consulting": 0,
+            "education": 0,
+            "administrative": 0,
+            "media_and_commmunication": 0
+        },
+        "organization_headcount_six_month_growth": 0.1931818181818182,
+        "organization_headcount_twelve_month_growth": 0.3291139240506329,
+        "organization_headcount_twenty_four_month_growth": 1.234042553191489
+    }
+}
