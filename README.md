@@ -1,33 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Project Description
+
+It is a GTM intent pipeline tool that bridges the gap between onfield marketing and sales. Give it nothing more than an email captured at an event, and it handles the rest: extracting the name and company, enriching it with real data, and teeing up a context aware LLM based outreach for the sales rep. 
+
+## How It Works
+
+1. **(Events Vertical) On-field Contact Capture**: Onsite marketing/events team logs an individual they meet. Just the email is enough, but they can also add title and raw conversation notes (this will be used as context for the sales vertical).
+
+2. **(Automatic) Extraction & Enrichment**: The tool automatically extracts the individual's name and company, then creates an enriched company profile using the Apollo API.
+
+3. **(Automatic) Sales Handoff**: The enriched data is queued in the sales kanban pipeline.
+
+4. **(Sales Vertical)**: Sales team can selectively use any or all of the company profile, event-specific context, raw conversation notes, and custom instructions to generate highly targeted, LLM-based outreach.
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies, then run the development server:
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Project is split into three parallel domains 
+— **`core`**
+- **`sales`** 
+- **`events`** 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`sales` and `events` are thin and only contain config, UI and strings for its own domain; `core` is where data access and mutations are centralized.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/                      # routing only: pages, layouts, error boundaries
+prisma/                   # schema and migrations
+src/
+├── core/                 # shared infrastructure
+│   ├── actions/          # mutations, grouped by record not domain
+│   ├── integrations/     # external API clients (Apollo, OpenAI)
+│   ├── ui/               # cross-domain UI (shell, sidebar, nav)
+│   └── utils/            # pure helpers (validation, string extraction)
+├── sales/                # sales domain: strings, config, UI
+│   └── ui/               # domain-specific UI (pipeline kanban board)
+└── events/               # events domain: strings, config, UI
+    └── ui/               # domain-specific UI (booth/event capture)
+```
 
 ## Deploy on Vercel
 
