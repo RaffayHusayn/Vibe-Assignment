@@ -7,8 +7,8 @@ export const salesStrings = {
   board: {
     columnEmpty: "No companies here",
     contactsLabel: (count: number) => `${count} contact${count === 1 ? "" : "s"}`,
-    pendingBadge: "Enriching",
-    failedBadge: "Enrichment failed",
+    enrichedBadge: "ENRICHED",
+    failedBadge: "ENRICHMENT FAILED",
   },
   detail: {
     backLabel: "Back to pipeline",

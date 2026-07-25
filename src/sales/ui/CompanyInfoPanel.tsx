@@ -13,7 +13,7 @@ interface CompanyInfoPanelProps {
   growth24mo: number | null;
   techStack: string[];
   deptHeadcount: unknown;
-  enrichmentStatus: "pending" | "enriched" | "failed";
+  enrichmentStatus: "enriched" | "failed";
 }
 
 function pct(value: number | null): string {
@@ -63,12 +63,7 @@ export function CompanyInfoPanel({
     <Paper withBorder radius="md" p="lg">
       <Group justify="space-between" mb="md">
         <Title order={4}>{infoPanel.title}</Title>
-        <Badge
-          variant="light"
-          color={
-            enrichmentStatus === "enriched" ? "teal" : enrichmentStatus === "failed" ? "red" : "gray"
-          }
-        >
+        <Badge variant="light" color={enrichmentStatus === "enriched" ? "teal" : "red"}>
           {enrichmentStatus}
         </Badge>
       </Group>

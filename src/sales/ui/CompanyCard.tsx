@@ -15,15 +15,13 @@ export interface CompanyCardData {
   industry: string | null;
   metaLabel: string | null;
   contactsCount: number;
-  enrichmentStatus: "pending" | "enriched" | "failed";
+  enrichmentStatus: "enriched" | "failed";
 }
 
 /** Pure visual content, reused by the card itself and the drag overlay preview. */
 export function CompanyCardContent({
   name,
   domain,
-  industry,
-  metaLabel,
   contactsCount,
   enrichmentStatus,
 }: CompanyCardData) {
@@ -45,33 +43,17 @@ export function CompanyCardContent({
             </Text>
           </Box>
         </Group>
-        {enrichmentStatus !== "enriched" && (
-          <Badge
-            size="xs"
-            variant="light"
-            color={enrichmentStatus === "failed" ? "red" : "gray"}
-            style={{ flexShrink: 0 }}
-          >
-            {enrichmentStatus === "failed" ? board.failedBadge : board.pendingBadge}
-          </Badge>
-        )}
+        <Badge
+          size="xs"
+          variant="light"
+          color={enrichmentStatus === "failed" ? "red" : "green"}
+          style={{ flexShrink: 0 }}
+        >
+          {enrichmentStatus === "failed" ? board.failedBadge : board.enrichedBadge}
+        </Badge>
       </Group>
 
-      {(industry || metaLabel) && (
-        <Group gap={6} mb={6}>
-          {industry && (
-            <Badge size="xs" variant="outline" color="gray" tt="none" fw="normal">
-              {industry}
-            </Badge>
-          )}
-          {metaLabel && (
-            <Text size="xs" c="dimmed">
-              {metaLabel}
-            </Text>
-          )}
-        </Group>
-      )}
-
+ 
       <Group gap={4}>
         <IconUsers size={12} color="var(--mantine-color-dimmed)" />
         <Text size="xs" c="dimmed">

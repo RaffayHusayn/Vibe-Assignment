@@ -18,44 +18,30 @@ function str(form: FormData, key: string): string {
   return typeof v === "string" ? v.trim() : "";
 }
 
-/** Run the Apollo enrich pass for a freshly created company and persist the result. */
-async function enrichCompanyRecord(company: Core_Company): Promise<Core_Company> {
-  try {
-    const enrichment = await enrichCompany(company.domain);
-    if (!enrichment) {
-      return await prisma.core_Company.update({
-        where: { id: company.id },
-        data: { enrichmentStatus: "failed", enrichedAt: new Date() },
-      });
-    }
-    return await prisma.core_Company.update({
-      where: { id: company.id },
-      data: { ...enrichment, enrichmentStatus: "enriched", enrichedAt: new Date() },
-    });
-  } catch {
-    return await prisma.core_Company.update({
-      where: { id: company.id },
-      data: { enrichmentStatus: "failed", enrichedAt: new Date() },
-    });
-  }
-}
-
 /**
- * Find the company for a domain, creating a shell if it doesn't exist yet.
- * Idempotent under the unique `domain` constraint, so two booth captures for
- * the same new company land on the same record.
+ * Find the company for a domain, running the Apollo enrich pass and creating
+ * the record if it doesn't exist yet. Idempotent under the unique `domain`
+ * constraint, so two booth captures for the same new company land on the
+ * same record.
  */
 async function findOrCreateCompany(domain: string, provisionalName: string): Promise<Core_Company> {
   const existing = await prisma.core_Company.findUnique({ where: { domain } });
   if (existing) return existing;
 
+  // Enrich before creating so the row lands with its final status — the
+  // enrichment result, if any, overwrites the provisional name below.
+  const enrichment = await enrichCompany(domain).catch(() => null);
+
   try {
-    // Seed a provisional display name from the mocked extraction; the Apollo
-    // enrich pass right below overwrites it with the canonical name.
-    const created = await prisma.core_Company.create({
-      data: { domain, name: provisionalName || null },
+    return await prisma.core_Company.create({
+      data: {
+        domain,
+        name: provisionalName || null,
+        ...enrichment,
+        enrichmentStatus: enrichment ? "enriched" : "failed",
+        enrichedAt: new Date(),
+      },
     });
-    return await enrichCompanyRecord(created);
   } catch {
     // Lost a race with a concurrent capture for the same domain — re-read.
     const raced = await prisma.core_Company.findUnique({ where: { domain } });

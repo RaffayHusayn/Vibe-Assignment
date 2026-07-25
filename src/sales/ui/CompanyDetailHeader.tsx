@@ -13,7 +13,7 @@ interface CompanyDetailHeaderProps {
   employeeCount: number | null;
   revenueLabel: string | null;
   contactsCount: number;
-  enrichmentStatus: "pending" | "enriched" | "failed";
+  enrichmentStatus: "enriched" | "failed";
 }
 
 export function CompanyDetailHeader({
@@ -43,9 +43,9 @@ export function CompanyDetailHeader({
           <Stack gap={6}>
             <Group gap="xs">
               <Title order={1}>{name}</Title>
-              {enrichmentStatus !== "enriched" && (
-                <Badge color={enrichmentStatus === "failed" ? "red" : "gray"} variant="outline">
-                  {enrichmentStatus === "failed" ? "Enrichment failed" : "Enriching"}
+              {enrichmentStatus === "failed" && (
+                <Badge color="red" variant="outline">
+                  Enrichment failed
                 </Badge>
               )}
             </Group>
