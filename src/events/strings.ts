@@ -71,16 +71,4 @@ export const eventsStrings = {
       removeAction: "Remove",
     },
   },
-  contacts: {
-    breadcrumb: "Events / Contacts",
-    title: "Contacts",
-    metaItems: ["0 contacts", "0 verified", "0 companies"],
-    primaryAction: "New contact",
-  },
-  companies: {
-    breadcrumb: "Events / Companies",
-    title: "Companies",
-    metaItems: ["0 companies", "0 enriched", "0 pending"],
-    primaryAction: "New company",
-  },
 } as const;

@@ -52,7 +52,6 @@ export default async function SalesCompaniesPage() {
         breadcrumb={strings.breadcrumb}
         title={strings.title}
         metaItems={metaItems}
-        primaryAction={<Button>{strings.primaryAction}</Button>}
       />
       <PipelineBoard grouped={grouped} />
     </>

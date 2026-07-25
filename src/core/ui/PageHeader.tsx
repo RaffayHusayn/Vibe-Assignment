@@ -5,7 +5,7 @@ interface PageHeaderProps {
   breadcrumb: string;
   title: string;
   metaItems: readonly string[];
-  primaryAction: ReactNode;
+  primaryAction?: ReactNode;
   backAction?: ReactNode;
 }
 

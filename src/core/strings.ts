@@ -14,6 +14,9 @@ export const coreStrings = {
     companies: "Companies",
   },
   topNav: {
-    searchPlaceholder: "Search...",
+    searchPlaceholder: "Search contacts, companies...",
+    searchNoResults: "No matches",
+    searchGroupContacts: "Contacts",
+    searchGroupCompanies: "Companies",
   },
 } as const;
