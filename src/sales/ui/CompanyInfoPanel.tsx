@@ -91,7 +91,7 @@ export function CompanyInfoPanel({
             {infoPanel.techStack}
           </Text>
           <Group gap={6}>
-            {techStack.map((tech) => (
+            {techStack.slice(0, 30).map((tech) => (
               <Badge key={tech} size="sm" variant="outline" color="gray" tt="none" fw="normal">
                 {tech}
               </Badge>

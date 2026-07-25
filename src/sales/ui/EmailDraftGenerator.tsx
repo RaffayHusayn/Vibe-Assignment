@@ -38,7 +38,6 @@ export function EmailDraftGenerator({
 
   const [contactId, setContactId] = useState<string | null>(contacts[0]?.id ?? null);
   const [includeTouchpoints, setIncludeTouchpoints] = useState(true);
-  const [includeStage, setIncludeStage] = useState(true);
 
   const [isLogging, startLogging] = useTransition();
   const [logged, setLogged] = useState(false);
@@ -108,13 +107,6 @@ export function EmailDraftGenerator({
             disabled={touchpointCount === 0}
             description={touchpointCount === 0 ? emailGenerator.noTouchpoints : undefined}
             onChange={(event) => setIncludeTouchpoints(event.currentTarget.checked)}
-          />
-
-          <Switch
-            name="includeStage"
-            label={emailGenerator.includeStageLabel}
-            checked={includeStage}
-            onChange={(event) => setIncludeStage(event.currentTarget.checked)}
           />
 
           <Textarea

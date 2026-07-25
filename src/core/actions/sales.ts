@@ -56,7 +56,7 @@ export type GenerateEmailState = {
 };
 
 /** Draft an outreach email for a contact, optionally grounded in their touchpoint
- * notes and the company's current pipeline stage, plus any freeform instructions. */
+ * notes, plus any freeform instructions. */
 export async function generateEmailDraft(
   _prev: GenerateEmailState,
   form: FormData,
@@ -64,7 +64,6 @@ export async function generateEmailDraft(
   const companyId = str(form, "companyId");
   const contactId = str(form, "contactId");
   const includeTouchpoints = form.get("includeTouchpoints") === "on";
-  const includeStage = form.get("includeStage") === "on";
   const instructions = str(form, "instructions");
 
   if (!contactId) {
@@ -80,7 +79,7 @@ export async function generateEmailDraft(
   }
 
   const [company, contact] = await Promise.all([
-    prisma.core_Company.findUnique({ where: { id: companyId }, include: { pipeline: true } }),
+    prisma.core_Company.findUnique({ where: { id: companyId } }),
     prisma.core_Contact.findUnique({
       where: { id: contactId },
       include: { touchpoints: { include: { event: true }, orderBy: { createdAt: "desc" } } },
@@ -96,9 +95,6 @@ export async function generateEmailDraft(
     `Recipient: ${contact.name ?? contact.email}${contact.title ? `, ${contact.title}` : ""} <${contact.email}>`,
   ];
 
-  if (includeStage) {
-    context.push(`Pipeline stage: ${company.pipeline?.stage ?? "new"}`);
-  }
   if (includeTouchpoints && contact.touchpoints.length > 0) {
     const notes = contact.touchpoints
       .map((tp) => `- At ${tp.event.name}: ${tp.note}`)

@@ -42,7 +42,6 @@ export const salesStrings = {
       noContacts: "Add a contact for this company before drafting an email.",
       includeTouchpointsLabel: "Use their touchpoint notes",
       noTouchpoints: "No touchpoint notes on file for this contact.",
-      includeStageLabel: "Mention current pipeline stage",
       instructionsLabel: "Custom instructions",
       instructionsPlaceholder: "e.g. keep it under 100 words, invite them to a demo call...",
       submit: "Generate draft",
