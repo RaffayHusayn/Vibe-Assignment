@@ -58,9 +58,10 @@ export function TopNav() {
   return (
     <Group h="100%" justify="space-between" wrap="nowrap" px="xl">
       <Select
+        className="search-select"
         placeholder={coreStrings.topNav.searchPlaceholder}
         leftSection={<IconSearch size={16} stroke={1.5} />}
-        rightSection={isPending ? <Loader size={14} /> : undefined}
+        rightSection={isPending ? <Loader size={14} /> : null}
         radius="md"
         flex={1}
         maw={820}

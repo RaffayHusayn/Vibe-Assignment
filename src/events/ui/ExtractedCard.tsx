@@ -94,15 +94,8 @@ export function ExtractedCard({
         gap={4}
         style={{ position: "relative", height: "100%", padding: "2.25rem 1.5rem 1.25rem" }}
       >
-        <Text
-          size="xs"
-          fw={700}
-          tt="uppercase"
-          style={{ letterSpacing: 2, color: "rgba(255,255,255,0.6)" }}
-        >
-          Attendee badge
-        </Text>
-
+        {/* 1. ADDED: Top spacer to push Name & Company down */}
+        <Box style={{ flex: 1 }} />
         {editing === "name" ? (
           <TextInput
             variant="unstyled"
@@ -166,7 +159,8 @@ export function ExtractedCard({
         <Text
           size="xs"
           ff="monospace"
-          style={{ color: "rgba(255,255,255,0.55)" }}
+          ta="center"
+          style={{ color: "rgba(255,255,255,0.55)", width: "100%" }}
         >
           <span style={{ color: "#7CFFB2", fontWeight: 700 }}>{local || "…"}</span>
           {"@"}

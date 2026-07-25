@@ -19,6 +19,7 @@ export interface WorkspaceConfig {
   label: string;
   href: string;
   icon: WorkspaceIcon;
+  color: string;
   nav: NavItem[];
 }
 
@@ -28,6 +29,7 @@ export const workspaces: WorkspaceConfig[] = [
     label: coreStrings.workspace.events,
     href: "/events",
     icon: IconCalendarEvent,
+    color: "teal",
     nav: [{ label: coreStrings.nav.events, href: "/events" }],
   },
   {
@@ -35,6 +37,7 @@ export const workspaces: WorkspaceConfig[] = [
     label: coreStrings.workspace.sales,
     href: "/sales",
     icon: IconBriefcase,
+    color: "indigo",
     nav: [{ label: coreStrings.nav.companies, href: "/sales" }],
   },
 ];

@@ -16,7 +16,7 @@ import {
   UnstyledButton,
 } from "@mantine/core";
 import { useHover } from "@mantine/hooks";
-import { IconSelector } from "@tabler/icons-react";
+import { IconLayoutKanban, IconSelector } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getActiveWorkspace, workspaces } from "../navigation";
@@ -40,7 +40,20 @@ export function Sidebar() {
           borderBottom: "1px solid var(--mantine-color-gray-3)",
         }}
       >
-        <Box w={28} h={28} bg="dark.4" bdrs="sm" style={{ flexShrink: 0 }} />
+        <Box
+          w={28}
+          h={28}
+          bdrs="sm"
+          style={{
+            flexShrink: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(135deg, var(--mantine-color-teal-6) 0%, var(--mantine-color-indigo-6) 100%)",
+          }}
+        >
+          <IconLayoutKanban size={16} color="white" stroke={2} />
+        </Box>
         <Title order={6}>{coreStrings.brand.name}</Title>
       </Group>
 
@@ -59,7 +72,7 @@ export function Sidebar() {
             >
               <Group justify="space-between" wrap="nowrap">
                 <Group gap="xs" wrap="nowrap">
-                  <ThemeIcon variant="light" color="blue" size={28} radius="sm">
+                  <ThemeIcon variant="light" color={activeWorkspace.color} size={28} radius="sm">
                     <activeWorkspace.icon size={16} />
                   </ThemeIcon>
                   <Box>
@@ -82,7 +95,11 @@ export function Sidebar() {
                 key={workspace.id}
                 component={Link}
                 href={workspace.href}
-                leftSection={<workspace.icon size={16} />}
+                leftSection={
+                  <ThemeIcon variant="light" color={workspace.color} size={22} radius="sm">
+                    <workspace.icon size={13} />
+                  </ThemeIcon>
+                }
                 fw={workspace.id === activeWorkspace.id ? "bold" : "regular"}
               >
                 {workspace.label}

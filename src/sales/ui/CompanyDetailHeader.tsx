@@ -1,5 +1,5 @@
-import { Avatar, Badge, Box, Divider, Group, Stack, Text, Title } from "@mantine/core";
-import { IconBuilding, IconUsers } from "@tabler/icons-react";
+import { Anchor, Avatar, Badge, Box, Divider, Group, Stack, Text, Title } from "@mantine/core";
+import { IconArrowUpRight, IconBuilding, IconUsers } from "@tabler/icons-react";
 import type { SalesStage } from "@/src/generated/prisma/client";
 import { salesStrings } from "../strings";
 import { BackToPipelineButton } from "./BackToPipelineButton";
@@ -49,9 +49,17 @@ export function CompanyDetailHeader({
                 </Badge>
               )}
             </Group>
-            <Text size="sm" c="dimmed">
+            <Anchor
+              href={`https://${domain}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+              display="inline-flex"
+              style={{ alignItems: "center", gap: 2, width: "fit-content" }}
+            >
               {domain}
-            </Text>
+              <IconArrowUpRight size={14} stroke={1.75} />
+            </Anchor>
             <Group gap="md">
               {employeeCount && (
                 <Group gap={6} wrap="nowrap">

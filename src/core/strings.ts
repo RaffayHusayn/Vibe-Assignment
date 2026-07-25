@@ -1,6 +1,6 @@
 export const coreStrings = {
   brand: {
-    name: "Brand",
+    name: "GTM Board",
   },
   workspace: {
     events: "Events",
