@@ -28,11 +28,7 @@ export const workspaces: WorkspaceConfig[] = [
     label: coreStrings.workspace.events,
     href: "/events",
     icon: IconCalendarEvent,
-    nav: [
-      { label: coreStrings.nav.events, href: "/events" },
-      { label: coreStrings.nav.contacts, href: "/events/contacts" },
-      { label: coreStrings.nav.companies, href: "/events/companies" },
-    ],
+    nav: [{ label: coreStrings.nav.events, href: "/events" }],
   },
   {
     id: "sales",
