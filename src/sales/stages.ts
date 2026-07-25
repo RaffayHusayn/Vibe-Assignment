@@ -13,3 +13,7 @@ export const stages: StageConfig[] = [
   { id: "qualified", label: "Qualified", color: "violet" },
   { id: "closed", label: "Closed", color: "teal" },
 ];
+
+export function getStageConfig(stage: SalesStage): StageConfig {
+  return stages.find((s) => s.id === stage) ?? stages[0];
+}

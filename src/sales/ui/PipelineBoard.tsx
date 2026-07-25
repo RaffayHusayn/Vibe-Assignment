@@ -126,7 +126,12 @@ export function PipelineBoard({ grouped: initialGrouped }: PipelineBoardProps) {
   }
 
   return (
-    <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext
+      id="sales-pipeline-board"
+      sensors={sensors}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
       <Group align="flex-start" wrap="nowrap" gap="md" style={{ overflowX: "auto" }} pb="sm">
         {stages.map((stage) => (
           <PipelineColumn
