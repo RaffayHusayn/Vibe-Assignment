@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import OpenAI from "openai";
 import { prisma } from "@/src/core/db";
+import { EmailDraftError, generateEmailDraft as draftEmail } from "@/src/core/integrations/openai";
 import type { SalesStage } from "@/src/generated/prisma/client";
 
 /** Move a company to a different pipeline stage (drag-and-drop on the board). Creates the pipeline row if the company doesn't have one yet. */
@@ -70,14 +70,6 @@ export async function generateEmailDraft(
     return { ok: false, error: "Pick who this email is for." };
   }
 
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey || apiKey.startsWith("sk-your-key")) {
-    return {
-      ok: false,
-      error: "OPENAI_API_KEY isn't configured — add a real key to .env to enable drafting.",
-    };
-  }
-
   const [company, contact] = await Promise.all([
     prisma.core_Company.findUnique({ where: { id: companyId } }),
     prisma.core_Contact.findUnique({
@@ -105,34 +97,13 @@ export async function generateEmailDraft(
     context.push(`Additional instructions: ${instructions}`);
   }
 
-  const openai = new OpenAI({ apiKey });
-
   try {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are a sales rep writing a short, warm, non-pushy outreach email. " +
-            'Respond with strict JSON: {"subject": string, "body": string}. ' +
-            "The body should be plain text, no markdown, no placeholders like [Your Name].",
-        },
-        { role: "user", content: context.join("\n\n") },
-      ],
-    });
-
-    const raw = completion.choices[0]?.message?.content;
-    if (!raw) return { ok: false, error: "The model returned an empty response." };
-
-    const parsed = JSON.parse(raw) as { subject?: string; body?: string };
-    if (!parsed.subject || !parsed.body) {
-      return { ok: false, error: "The model response was missing a subject or body." };
-    }
-
-    return { ok: true, draft: { subject: parsed.subject, body: parsed.body } };
-  } catch {
-    return { ok: false, error: "Failed to generate a draft. Try again." };
+    const draft = await draftEmail(context.join("\n\n"));
+    return { ok: true, draft };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof EmailDraftError ? error.message : "Failed to generate a draft. Try again.",
+    };
   }
 }
