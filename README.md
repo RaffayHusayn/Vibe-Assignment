@@ -24,7 +24,8 @@ yarn dev
 ## Project Structure
 
 Project is split into three parallel domains 
-— **`core`**
+
+- **`core`** 
 - **`sales`** 
 - **`events`** 
 
